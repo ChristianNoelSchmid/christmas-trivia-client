@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Question } from '../../models/question.interface';
 import { importJsonArray } from '../../import';
 import * as questionCardList from '../../../assets/questionCardList.json';
@@ -14,7 +14,7 @@ import { QUESTION_COUNT } from 'src/app/constants';
   templateUrl: './answer-questions.component.html',
   styleUrls: ['./answer-questions.component.css'],
 })
-export class AnswerQuestionsComponent implements OnInit {
+export class AnswerQuestionsComponent implements OnInit, AfterViewInit {
 
   public questions: Question[] = importJsonArray(questionCardList);
   public creatureQuestions: Question[] = [];
@@ -32,6 +32,14 @@ export class AnswerQuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.account.current.subscribe(account => {
       this.secretSantaGift = account?.secretSantaGift ?? "";
+    });
+  }
+
+  ngAfterViewInit(): void {
+      this.account.current.subscribe(account => {
+      if(account != null) {
+        this.account.signIn(account.name, account.password).subscribe();
+      }
     });
   }
 

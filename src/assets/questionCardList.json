@@ -53,5 +53,5 @@
   "title": "Q10",
   "message": "An elf position opens at the North Pole. Which position do you apply for?",
   "type": "choice",
-  "choices": ["Reindeer feeder / mucker", "Present maker / wrapper", "Sleigh maintenance", "Yikes, no thanks"]
+  "choices": ["Reindeer Feeder / Mucker", "Present Maker / Wrapper", "Sleigh Maintenance", "Yikes, No Thanks"]
 }]

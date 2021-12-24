@@ -6,7 +6,6 @@
             <input type="file" name='picture' class='form-control' (change)='onPictureChanged($event)'>
         </div>
         <div *ngIf="loading" class="spinner-border loading col-lg-5 mx-4 my-2" role="status">
-          <span class="sr-only">Loading...</span>
         </div>
         <div class='col-lg-4 text-center' *ngIf='(account.pictureUri | async) && !loading'>
             <img [src]='(account.pictureUri | async)' class='picture'> <!-- Filled when a picture is uploaded -->
