@@ -15,4 +15,8 @@ export class TakeTriviaComponent implements OnInit {
     this.triviaService.trivia.subscribe(triv => console.log(triv));
   }
 
+  public isChristmas() {
+    return new Date().getDate() >= 25;
+  }
+
 }
