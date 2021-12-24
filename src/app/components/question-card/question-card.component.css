@@ -1,0 +1,42 @@
+.title-pane {
+  width: 100%;
+}
+.title {
+  border-bottom: solid #ddd 1px;
+}
+.card {
+  background-image: url('../../../assets/candy_cane_panel.png');
+  background-repeat: repeat;
+  background-size: cover;
+
+  padding: 2em;
+  padding-bottom: 10em;
+}
+.btn-pane {
+  margin-top: 2em;
+}
+
+.message {
+  width: 100%;
+  background-color: #FFF9;
+  border-radius: 15px;
+}
+
+.sync-panel {
+  position: absolute;
+  bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 640px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    box-shadow: 0px 0px 5px #0000001a;
+
+    margin-top: calc(16vh - 32px); /* 32px for half navbar */
+    min-height: 68vh;
+
+    padding: 32px;
+  }
+}

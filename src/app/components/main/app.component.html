@@ -1,0 +1,63 @@
+<div class='main-wrapper'>
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+  <main>
+    <!-- Sign-in page -->
+    <div *ngIf="!(accounts.current | async); else list" class="container login">
+      <h1>Welcome to the Christmas Trivia!</h1>
+      <p>
+        This site is intended for a small group of people. Please provide the
+        following information if you are one of those people.
+      </p>
+      <form class="row sign-in-pane" (ngSubmit)="onSubmit($event)">
+        <div class="form-group my-2 col-lg-6">
+          <label>Name: </label>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control mb-2"
+            placeholder="Please provide your first Name"
+          />
+        </div>
+        <div class="form-group my-2 col-lg-6">
+          <label>Password: </label>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            placeholder="Please provide your Password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            class="btn btn-primary col-lg-5 my-2"
+            value="Submit"
+          />
+          <div *ngIf="loading" class="spinner-border col-lg-5 mx-4" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p
+            *ngIf="errorMessage != ''"
+            class="alert alert-danger"
+            [textContent]="errorMessage"
+          ></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Content page - if signed in -->
+    <ng-template #list>
+      <router-outlet></router-outlet>
+    </ng-template>
+  </main>
+  <footer>
+    <p>Music by Concerned Ape: "Winter Festival" from <i>Stardew Valley</i></p>
+    <audio controls autoplay=true loop>
+      <source src='assets/winter_festival.mp3' type='audio/mp3'>
+    </audio>
+  </footer>
+</div>

@@ -1,0 +1,53 @@
+<div class='container'>
+    <h3 class='text-left'>Welcome {{ (account.current | async)?.name }}!</h3>
+    <p>Please upload a picture of your beautiful / handsome self!</p>
+    <div class='row justify-content-center align-items-center my-4'>
+        <div class='col-lg-7 my-2'>
+            <input type="file" name='picture' class='form-control' (change)='onPictureChanged($event)'>
+        </div>
+        <div *ngIf="loading" class="spinner-border loading col-lg-5 mx-4 my-2" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class='col-lg-4 text-center' *ngIf='(account.pictureUri | async) && !loading'>
+            <img [src]='(account.pictureUri | async)' class='picture'> <!-- Filled when a picture is uploaded -->
+        </div>
+    </div>
+</div>
+<p
+    *ngIf="errorMessage"
+    class="alert alert-danger my-4"
+    [textContent]="errorMessage"
+></p>
+<div class='container'>
+    <h3>Trivia Questions</h3>
+    <p>Please answer the questions below. Thanks!</p>
+</div>
+<div class='d-flex flex-column align-items-center mt-4'>
+    <app-question-card *ngFor="let question of questions" [question]="question" [choiceText]='(account.answers | async)?.get(question.index) ?? ""'></app-question-card>
+</div>
+
+<div class='container ss'>
+    <h3>Secret Santa</h3>
+    <p>Your Secret Santa recipient is {{ (account.secretSantaRecipient | async)?.name ?? "undefined" }}!</p>
+    <p>If money were no option, what would you buy {{ (account.secretSantaRecipient | async)?.name ?? "undefined" }}?</p>
+    <input [(ngModel)]='secretSantaGift' (input)='onAnswerChange()' class='form-control mb-3' type='text' placeholder="Enter a gift!">
+    <div class='d-flex justify-content-center sync-panel py-4'>
+        <div *ngIf="loading" class="spinner-border loading" role="status">
+        <span class="sr-only">Loading...</span>
+        </div>
+        <p *ngIf="!loading && messageText" [ngStyle]='{ "color": messageColor }' [textContent]='messageText' class='text-center'></p>
+    </div>
+</div>
+
+<div class='container'>
+    <h3>Christmas Creature Questions</h3>
+    <p>Please answer each question about your friends. Thanks!</p>
+</div>
+<div class='d-flex flex-column align-items-center my-4'> 
+    <app-creature-card *ngFor="let user of (account.users | async)?.values()" [user]='user' [choiceIndex]='(account.creatureRates | async)?.get(user.id) ?? -1'></app-creature-card>
+</div>
+<div class='container d-flex justify-content-end'>
+    <a routerLink="thanks">
+        <input type="submit" value='Complete' class='btn btn-primary complete-btn text-right'>
+    </a>
+</div>

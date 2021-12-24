@@ -1,0 +1,19 @@
+<div *ngIf="question">
+  <div class="title-pane mb-3 row justify-content-center align-items-center">
+    <h3 class="col-lg-5 title text-center pb-2">Question for {{ question.questionerName }}</h3>
+    <img class='col-lg-5 user-pic' [src]='pictureUrl()'>
+  </div>
+  <p class='message'>How do you think {{ question.questionerName }} would answer this question: {{ questions[question.qIndex].message }}</p>
+  <div
+    class="btn-pane row justify-content-center">
+    <button
+      *ngFor="let choice of question.values; let i = index;"
+      class="col-md-5 m-2 btn font-bold"
+      [class.btn-primary]='!answered || question.answerIndex == i'
+      [class.btn-danger]='answered && question.answerIndex != i'
+      (click)='tryAnswer(i)'
+    >
+      {{ choice }}
+    </button>
+  </div>
+</div>

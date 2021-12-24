@@ -1,0 +1,24 @@
+.main-wrapper {
+    min-height: 100vh; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+header {
+    height: 52px;
+    margin-bottom: 2em;
+}
+
+footer {
+    color: white;
+    padding: 1em;
+    height: 128px;
+    background-color: green;
+    margin-top: 4em;
+}
+
+main {
+    min-height: calc(100vh - 248px);
+}

@@ -1,0 +1,4 @@
+const QUESTION_COUNT = 10;
+const SITE_URL = 'http://34.127.106.226:3000';
+
+export { QUESTION_COUNT, SITE_URL };

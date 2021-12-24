@@ -1,0 +1,57 @@
+[{
+  "index": 0,
+  "title": "Q1",
+  "message": "What is your favorite Christmas movie?",
+  "type": "word"
+}, {
+  "index": 1,
+  "title": "Q2",
+  "message": "What is your favorite Christmas beverage?",
+  "type": "word"
+}, {
+  "index": 2,
+  "title": "Q3",
+  "message": "What is your favorite Christmas song?",
+  "type": "word"
+},{
+  "index": 3,
+  "title": "Q4",
+  "message": "What is your favorite Christmas treat?",
+  "type": "word"
+},{
+  "index": 4,
+  "title": "Q5",
+  "message": "True or false: you like knowing what you're getting for Christmas beforehand.",
+  "type": "choice",
+  "choices": ["True", "False"]
+},{
+  "index": 5,
+  "title": "Q6",
+  "message": "True or false: you like to wear ugly Christmas sweaters.",
+  "type": "choice",
+  "choices": ["True", "False"]
+},{
+  "index": 6,
+  "title": "Q7",
+  "message": "When do you put up your Chrismas decorations?",
+  "type": "choice",
+  "choices": ["Before Thanksgiving", "After Thanksgiving", "I don't decorate", "I never take them down!"]
+},{
+  "index": 7,
+  "title": "Q8",
+  "message": "True or false: you enjoy holiday shopping.",
+  "type": "choice",
+  "choices": ["True", "False"]
+},{
+  "index": 8,
+  "title": "Q9",
+  "message": "In all honesty, do you prefer a real, or fake tree?",
+  "type": "choice",
+  "choices": ["Real!", "Fake!"]
+},{
+  "index": 9,
+  "title": "Q10",
+  "message": "An elf position opens at the North Pole. Which position do you apply for?",
+  "type": "choice",
+  "choices": ["Reindeer feeder / mucker", "Present maker / wrapper", "Sleigh maintenance", "Yikes, no thanks"]
+}]

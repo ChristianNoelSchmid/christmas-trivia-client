@@ -1,0 +1,48 @@
+@import url("~bootstrap/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Source+Code+Pro:wght@400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Raleway;
+}
+
+input:focus {
+  box-shadow: 3px 3px 3ox #009a3844;
+}
+
+.btn-primary {
+  background-color: #009a38;
+  border-color: #009a38;
+}
+
+.btn-primary:hover {
+  background-color: #00ba58;
+  border-color: #00ba58;
+}
+
+.btn-outline-primary {
+  color: #009a38;
+  background-color: white;
+  border-color: #009a38;
+}
+
+.btn-outline-primary:hover {
+  background-color: #009a38;
+  border-color: #009a38;
+  color: white;
+}
+
+.back-button {
+    position: absolute;
+    top: 50%; left: 12px;
+    cursor: pointer;
+}
+
+.forward-button {
+    position: absolute;
+    top: 50%; right: 12px;
+    cursor: pointer;
+}

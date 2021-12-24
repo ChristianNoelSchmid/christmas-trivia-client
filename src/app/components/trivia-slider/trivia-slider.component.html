@@ -1,0 +1,26 @@
+<div class='slider d-flex' [ngStyle]='{ "transform": "translateX(" + (-cardIndex * 100) + "%)" }'>
+    <div class='text-center d-flex flex-column justify-content-center'>
+        <h1>Welcome!</h1>
+        <p>To go forward or back in the trivia, please press the back and forward arrows.</p>
+    </div>
+    <app-trivia-card *ngFor='let question of (triviaService.trivia | async)?.triviaQuestions' [question]='question'></app-trivia-card>
+    <div class='text-center d-flex flex-column justify-content-center'>
+        <h1>Secret Santa</h1>
+        <div class='row justify-content-center align-items-center'>
+            <p>Your secret Santa is {{ (triviaService.trivia | async)?.secretSantaGifter }}!</p>
+            <img class='ss-img' [src]='SITE_URL + "/pictures/" + (triviaService.trivia | async)?.secretSantaGifterPictureUri'>
+            <p>Your secret Santa got you...</p>
+            <h2 style='text-decoration: underline'>{{ (triviaService.trivia | async)?.secretSantaGift ?? "Nothing! They haven't answered yet!" }}</h2>
+            <h4>Yay!</h4>
+        </div>
+    </div>
+    <div class='text-center d-flex flex-column justify-content-center'>
+        <h1>Ratings</h1>
+        <p>Here's how you were rated by your fam!</p>
+        <app-creature-chart></app-creature-chart>
+    </div>
+    <div class='text-center d-flex flex-column justify-content-center'>
+        <h1>Thanks!</h1>
+        <p>Merry Christmas! <a routerLink='/take-trivia' (click)='redirectTo("/take-trivia")' >Click to take the trivia again!</a></p>
+    </div>
+</div>

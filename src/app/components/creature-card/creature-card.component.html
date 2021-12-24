@@ -1,0 +1,24 @@
+<div *ngIf="user" class="card mx-4 mt-4">
+  <div class="title-pane mb-3">
+    <h3 class="title text-center pb-2">{{ user.name }}'s Christmas Creature</h3>
+  </div>
+  <p class='message'>Which Christmas creature does {{ user.name }} most embody?</p>
+  <div class="btn-pane row justify-content-center">
+    <button
+      *ngFor="let button of buttonData; let i = index;"
+      class="col-md-5 m-2 btn font-bold"
+      [class.btn-primary]='i == choiceIndex'
+      [class.btn-outline-primary]='i != choiceIndex'
+      (click)='onAnswerChange(user.id, i)'
+    >
+      {{ button.text }}
+    </button>
+  </div>
+  <div class='d-flex justify-content-center sync-panel'>
+    <div *ngIf="loading" class="spinner-border loading" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p *ngIf="!loading && messageText" [ngStyle]='{ "color": messageColor }' [textContent]='messageText' class='text-center'></p>
+  </div>
+</div>
+
