@@ -35,7 +35,7 @@
   "title": "Q7",
   "message": "When do you put up your Chrismas decorations?",
   "type": "choice",
-  "choices": ["Before Thanksgiving", "After Thanksgiving", "I don't decorate", "I never take them down!"]
+  "choices": ["Before Thanksgiving", "After Thanksgiving", "I Don't Decorate", "I Never Take Them Down!"]
 },{
   "index": 7,
   "title": "Q8",

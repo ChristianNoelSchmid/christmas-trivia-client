@@ -159,7 +159,7 @@ export class TriviaService {
     const msg = new Subject<string | null>();
 
     this.account.current.subscribe(account => {
-    this.http.get<Trivia>(SITE_URL + "/get-trivia", {
+    this.http.get<Trivia>(`${SITE_URL}/get-trivia`, {
       headers: {
         "User": JSON.stringify(account)
       }

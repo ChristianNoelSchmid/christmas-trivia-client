@@ -18,13 +18,13 @@ export class TriviaSliderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() { 
-    setInterval(() => window.scrollTo({ left: 0 }), 10);
-    setTimeout(() => {
+    this.triviaService.getTrivia().subscribe(_ => {
+      this.triviaService.trivia.subscribe(_ => {
       const cards = document.querySelectorAll('.slider > *');
 
       cards.forEach((card, index) => {
 
-        if(index != 0) {
+        /*if(index != 0) {
           const back = document.createElement('div');
           back.className = 'back-button';
           back.innerHTML = `
@@ -46,9 +46,10 @@ export class TriviaSliderComponent implements OnInit, AfterViewInit {
           forward.addEventListener('click', () => this.goForward()); 
 
           card.append(forward);
-        }
+        }*/
       });
-    }, 100);
+      });
+    });
   }
 
   goForward() {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SITE_URL } from 'src/app/constants';
 import { importJsonArray } from 'src/app/import';
 import { Question } from 'src/app/models/question.interface';
@@ -13,6 +13,8 @@ import * as questionCardList from "../../../assets/questionCardList.json";
 export class TriviaCardComponent implements OnInit {
 
   @Input() public question?: TriviaQuestion;
+  @Output() goForwardEmitter = new EventEmitter<void>();
+  @Output() goBackwardEmitter = new EventEmitter<void>();
   public questions: Question[] = importJsonArray(questionCardList);
 
   public answered = false;
@@ -21,6 +23,9 @@ export class TriviaCardComponent implements OnInit {
   constructor() { }
 
   pictureUrl() {
+    if(!this.question?.questionerPictureUri)
+      return undefined;
+
     return `${SITE_URL}/pictures/${this.question?.questionerPictureUri}`;
   }
 
@@ -31,6 +36,14 @@ export class TriviaCardComponent implements OnInit {
   tryAnswer(index: number) {
     this.answered = true;
     this.answeredCorrectly = index == this.question?.answerIndex;
+  }
+
+  goForward() {
+    this.goForwardEmitter.next();
+  }
+
+  goBackward() {
+    this.goBackwardEmitter.next();
   }
 
 }

@@ -19,6 +19,18 @@
     height: auto;
 }
 
+.back-button {
+    position: absolute;
+    top: 50%; left: 12px;
+    cursor: pointer;
+}
+
+.forward-button {
+    position: absolute;
+    top: 50%; right: 12px;
+    cursor: pointer;
+}
+
 @media(min-width: 768px) {
     .slider {
         margin-top: 0;
